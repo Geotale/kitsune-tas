@@ -13,7 +13,7 @@
 	/* Currently unfinished and unused */
 	const prevGetGamepads = navigator.getGamepads.bind(navigator);
 
-	const inputs = [];
+	let inputs = [];
 	let frame = 0;
 
 	const defaultInput = {
@@ -83,10 +83,6 @@
 	let running = true;
 
 	let prevTime = curPerformanceNow;
-	let realPrevTime = curPerformanceNow;
-	let secondStart = curPerformanceNow;
-	let count = 1;
-	let count2 = 0;
 	function refresh () {
 		if (!running) {
 			return;
@@ -103,8 +99,6 @@
 				curDateNow += 1000 / fps;
 				curPerformanceNow += 1000 / fps;
 	
-				realPrevTime = curTime;
-				
 				for (const i in queue) {
 					queue[i].delay -= 1000 / fps;
 					
