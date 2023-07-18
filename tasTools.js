@@ -14,6 +14,7 @@
 	const prevGetGamepads = navigator.getGamepads.bind(navigator);
 
 	const inputs = [];
+	let frame = 0;
 
 	const defaultInput = {
 		mouse: [0, 0],
@@ -51,10 +52,9 @@
 	
 	/* Primarily for controlling speed / pausing */
 	const fps = 30;
-	let speed = 10000;
-	let frame = 0;
 	
-	const tooFastFrames = 9999;
+	let speed = 1;
+	let tooFastFrames = 0;
 	
 	let id = 0;
 
